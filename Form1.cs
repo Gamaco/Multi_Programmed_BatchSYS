@@ -29,7 +29,7 @@ namespace Projecto_2_19_2025
             lstReady.DataSource = os.getlistReady();
         }
 
-        private void updateNewProcesses()      
+        private void updateNewProcesses()
         {
             RAM.DataSource = null;
             RAM.DataSource = os.getnewProcesses();
@@ -46,67 +46,76 @@ namespace Projecto_2_19_2025
         private void UpdateRunning()
         {
             CPU_List.Items.Clear();
+            int runningCount = 0;
 
             foreach (CPU cpu in os.getCPUs())
             {
                 if (cpu.isExecutingAProcess())
                 {
                     CPU_List.Items.Add(String.Format("CPU [{0}]: {1}", cpu.getId(), cpu.getExecutingProcess().ToString()));
+                    runningCount++;
                 }
             }
+
+            int totalCPUs = os.getCPUs().Count;
+            float usage = (totalCPUs > 0) ? ((float)runningCount / totalCPUs) * 100 : 0;
+
+            lbl_cpuUsage.Text = $"CPU Usage: {usage:0}%"; // El 0 es para que lo redondee
+
         }
 
-            private async void btnClock_Click(object sender, EventArgs e)
+
+        private async void btnClock_Click(object sender, EventArgs e)
+        {
+            // La mitad de un segundo en MS
+            int velocidadClick = 300;
+
+            // Chequea si esta en modo automatico
+            if (autoTrigger == false && checkBox1.Checked == true)
             {
-                // La mitad de un segundo en MS
-                int velocidadClick = 300; 
+                autoTrigger = true;
+                btnClock.Text = "Stop";
 
-                // Chequea si esta en modo automatico
-                if (autoTrigger == false && checkBox1.Checked == true)
+                await Task.Run(() =>
                 {
-                    autoTrigger = true;
-                    btnClock.Text = "Stop";
-
-                    await Task.Run(() =>
+                    while (autoTrigger)
                     {
-                        while (autoTrigger)
+                        Console.WriteLine("\n-----New Tick-----");
+                        os.ClockTick();
+
+                        Invoke(new Action(() =>
                         {
-                            Console.WriteLine("\n-----New Tick-----");
-                            os.ClockTick();
+                            UpdateRunning();
+                            UpdateFinished();
+                            updateNewProcesses();
+                            UpdateREADY();
+                            UpdateRunning();
+                        }));
 
-                            Invoke(new Action(() =>
-                            {
-                                UpdateRunning();
-                                UpdateFinished();
-                                updateNewProcesses();
-                                UpdateREADY();
-                                UpdateRunning();
-                            }));
+                        Thread.Sleep(velocidadClick);
+                    }
+                });
 
-                            Thread.Sleep(velocidadClick);
-                        }
-                    });
-
-                    btnClock.Text = "Clock tick";
-                }
-                else
-                {
-                    autoTrigger = false;
-                    btnClock.Text = "Clock tick";
-                }
+                btnClock.Text = "Clock tick";
+            }
+            else
+            {
+                autoTrigger = false;
+                btnClock.Text = "Clock tick";
+            }
 
             // Si no esta en modo automatico, hace un solo tick y ya
             if (!checkBox1.Checked)
-                {
-                    Console.WriteLine("\n-----New Tick-----");
-                    os.ClockTick();
-                    UpdateRunning();
-                    UpdateFinished();
-                    updateNewProcesses();
-                    UpdateREADY();
-                    UpdateRunning();
-                }
+            {
+                Console.WriteLine("\n-----New Tick-----");
+                os.ClockTick();
+                UpdateRunning();
+                UpdateFinished();
+                updateNewProcesses();
+                UpdateREADY();
+                UpdateRunning();
             }
+        }
 
 
         private void btnPCB_Click(object sender, EventArgs e)
@@ -122,13 +131,23 @@ namespace Projecto_2_19_2025
             NumericUpDown numericUpDown = sender as NumericUpDown;
 
             // Cambia la cantidad de CPUs disponibles
-            os.SetAvailableCPUs((int)numericUpDown.Value); 
+            os.SetAvailableCPUs((int)numericUpDown.Value);
         }
 
         private void numericUpDown_QuantumTime_ValueChanged(object sender, EventArgs e)
         {
             os.updateQuantumTime((int)numericUpDown_QuantumTime.Value); // Cambia el quantum de cada CPU
         }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            os.updateMaxProcessesSize((int)numericUpDown1.Value); // Cambia el tamaño maximo de los procesos
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            os.updateMinProcessesSize((int)numericUpDown2.Value); // Cambia el tamaño minimo de los procesos
+        }
     }
 }
-    
+

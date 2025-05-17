@@ -14,11 +14,16 @@ public class Rndm_Gen
 		process_Identifier = 1;
 	}
 
-	public Proceso getNewProcess()
+	public Proceso getNewProcess(int maxSize, int minSize)
 	{
-		Random rndm = new Random();
+		Console.WriteLine(maxSize);
 
-		int size= rndm.Next(1,15);
+		if (maxSize == 0) {  maxSize = 15; } // Asegurarse de que el tamaño maximo no sea menor que 1
+		if (minSize < 0) { minSize = 1; } // Asegurarse de que el tamaño minimo no sea menor que 1
+
+        Random rndm = new Random();
+
+		int size = rndm.Next(minSize,maxSize);
 
 		int priority = rndm.Next(1,6);
 

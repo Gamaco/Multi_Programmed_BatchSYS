@@ -38,6 +38,7 @@
             this.CPU_List = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel22 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.btnClock = new System.Windows.Forms.Button();
@@ -54,6 +55,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_cpuUsage = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -64,13 +66,15 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -82,6 +86,8 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // lstReady
@@ -142,7 +148,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(525, 38);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Process Status: Running";
+            this.label4.Text = "Running";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnPCB
@@ -150,7 +156,7 @@
             this.btnPCB.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnPCB.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnPCB.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnPCB.Location = new System.Drawing.Point(53, 204);
+            this.btnPCB.Location = new System.Drawing.Point(53, 162);
             this.btnPCB.Margin = new System.Windows.Forms.Padding(2);
             this.btnPCB.Name = "btnPCB";
             this.btnPCB.Size = new System.Drawing.Size(197, 38);
@@ -163,7 +169,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(49, 55);
+            this.label5.Location = new System.Drawing.Point(49, 38);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(179, 33);
@@ -174,7 +180,7 @@
             // numericUpDown
             // 
             this.numericUpDown.AutoSize = true;
-            this.numericUpDown.Location = new System.Drawing.Point(61, 90);
+            this.numericUpDown.Location = new System.Drawing.Point(61, 73);
             this.numericUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown.Name = "numericUpDown";
             this.numericUpDown.Size = new System.Drawing.Size(150, 20);
@@ -223,10 +229,22 @@
             this.panel21.Controls.Add(this.label10);
             this.panel21.Controls.Add(this.btnClock);
             this.panel21.Controls.Add(this.btnPCB);
-            this.panel21.Location = new System.Drawing.Point(12, 242);
+            this.panel21.Location = new System.Drawing.Point(12, 215);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(296, 293);
+            this.panel21.Size = new System.Drawing.Size(296, 221);
             this.panel21.TabIndex = 22;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(53, 47);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(202, 24);
+            this.checkBox1.TabIndex = 18;
+            this.checkBox1.Text = "Ejecutar automaticamente";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // panel22
             // 
@@ -259,7 +277,7 @@
             this.btnClock.ForeColor = System.Drawing.Color.Black;
             this.btnClock.Image = global::Projecto_2_19_2025.Properties.Resources.icons8_future_50;
             this.btnClock.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnClock.Location = new System.Drawing.Point(53, 134);
+            this.btnClock.Location = new System.Drawing.Point(53, 92);
             this.btnClock.Margin = new System.Windows.Forms.Padding(2);
             this.btnClock.Name = "btnClock";
             this.btnClock.Size = new System.Drawing.Size(197, 38);
@@ -271,15 +289,19 @@
             // panel20
             // 
             this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.panel20.Controls.Add(this.label12);
+            this.panel20.Controls.Add(this.numericUpDown2);
+            this.panel20.Controls.Add(this.label11);
+            this.panel20.Controls.Add(this.numericUpDown1);
             this.panel20.Controls.Add(this.panel23);
             this.panel20.Controls.Add(this.label9);
             this.panel20.Controls.Add(this.label8);
             this.panel20.Controls.Add(this.numericUpDown_QuantumTime);
             this.panel20.Controls.Add(this.label5);
             this.panel20.Controls.Add(this.numericUpDown);
-            this.panel20.Location = new System.Drawing.Point(12, 541);
+            this.panel20.Location = new System.Drawing.Point(12, 442);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(296, 268);
+            this.panel20.Size = new System.Drawing.Size(296, 367);
             this.panel20.TabIndex = 21;
             // 
             // panel23
@@ -308,7 +330,7 @@
             // 
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(20, 141);
+            this.label8.Location = new System.Drawing.Point(20, 118);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(249, 44);
@@ -319,7 +341,7 @@
             // numericUpDown_QuantumTime
             // 
             this.numericUpDown_QuantumTime.AutoSize = true;
-            this.numericUpDown_QuantumTime.Location = new System.Drawing.Point(63, 196);
+            this.numericUpDown_QuantumTime.Location = new System.Drawing.Point(63, 173);
             this.numericUpDown_QuantumTime.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown_QuantumTime.Name = "numericUpDown_QuantumTime";
             this.numericUpDown_QuantumTime.Size = new System.Drawing.Size(150, 20);
@@ -345,7 +367,7 @@
             this.panel6.Controls.Add(this.panel17);
             this.panel6.Location = new System.Drawing.Point(12, 18);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(296, 218);
+            this.panel6.Size = new System.Drawing.Size(296, 191);
             this.panel6.TabIndex = 12;
             // 
             // panel17
@@ -358,13 +380,13 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel17.Location = new System.Drawing.Point(0, 0);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(296, 213);
+            this.panel17.Size = new System.Drawing.Size(296, 181);
             this.panel17.TabIndex = 12;
             // 
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel19.Location = new System.Drawing.Point(31, 179);
+            this.panel19.Location = new System.Drawing.Point(30, 159);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(238, 2);
             this.panel19.TabIndex = 16;
@@ -372,7 +394,7 @@
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel18.Location = new System.Drawing.Point(31, 64);
+            this.panel18.Location = new System.Drawing.Point(30, 44);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(238, 2);
             this.panel18.TabIndex = 15;
@@ -381,7 +403,7 @@
             // 
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 72);
+            this.label7.Location = new System.Drawing.Point(2, 52);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(289, 104);
@@ -404,6 +426,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel2.Controls.Add(this.lbl_cpuUsage);
             this.panel2.Controls.Add(this.panel11);
             this.panel2.Controls.Add(this.CPU_List);
             this.panel2.Controls.Add(this.label4);
@@ -411,6 +434,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(525, 384);
             this.panel2.TabIndex = 14;
+            // 
+            // lbl_cpuUsage
+            // 
+            this.lbl_cpuUsage.AutoSize = true;
+            this.lbl_cpuUsage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_cpuUsage.ForeColor = System.Drawing.Color.White;
+            this.lbl_cpuUsage.Location = new System.Drawing.Point(394, 15);
+            this.lbl_cpuUsage.Name = "lbl_cpuUsage";
+            this.lbl_cpuUsage.Size = new System.Drawing.Size(104, 16);
+            this.lbl_cpuUsage.TabIndex = 13;
+            this.lbl_cpuUsage.Text = "CPU Usage: 0%";
             // 
             // panel11
             // 
@@ -451,7 +485,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(525, 38);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Process Status: Finished";
+            this.label3.Text = "Finished";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel4
@@ -484,7 +518,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(525, 38);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Process Status: New";
+            this.label1.Text = "New";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel5
@@ -517,7 +551,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(525, 38);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Process Status: Ready";
+            this.label2.Text = "Ready";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel7
@@ -560,17 +594,69 @@
             this.panel15.Size = new System.Drawing.Size(1060, 2);
             this.panel15.TabIndex = 20;
             // 
-            // checkBox1
+            // label11
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(53, 89);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(202, 24);
-            this.checkBox1.TabIndex = 18;
-            this.checkBox1.Text = "Ejecutar automaticamente";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(20, 224);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(249, 26);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Tamaño maximo de un proceso\r\n\r\n\r\n\r\n\r\n";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.AutoSize = true;
+            this.numericUpDown1.Location = new System.Drawing.Point(63, 252);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(150, 20);
+            this.numericUpDown1.TabIndex = 19;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(20, 301);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(249, 26);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Tamaño minimo de un proceso\r\n\r\n\r\n\r\n\r\n";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.AutoSize = true;
+            this.numericUpDown2.Location = new System.Drawing.Point(63, 329);
+            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(150, 20);
+            this.numericUpDown2.TabIndex = 21;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // GUI_OS
             // 
@@ -601,9 +687,12 @@
             this.panel6.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -625,7 +714,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label3;
@@ -653,6 +741,11 @@
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label lbl_cpuUsage;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
     }
 }
 

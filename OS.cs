@@ -11,6 +11,8 @@ public class OS
     //CONSTANTES
     const int MAX_PROCESSES_IN_READY = 5;
     private readonly object cpuLock;
+    int processMaxSize;
+    int processMinSize;
 
     // Listas
     List<Proceso> lstREADY;
@@ -65,7 +67,7 @@ public class OS
         MoveReadyToRunning();   // Si hay un CPU disponible, mueve un proceso de READY al CPU
         this.executeProcess();  // Ejecuta un ciclo del proceso cargado
 
-        removeExecutingProcess(); // Si el proceso en el CPU terminó, lo mueve a FINISHED
+        removeExecutingProcess(); // Si el proceso en el CPU termino, lo mueve a FINISHED
 
         updateBlocked();
 
@@ -76,8 +78,9 @@ public class OS
 
     }
 
+
     /**
-     * Cambia el quantum de cada CPU.
+     * Cambia el quantum de cada CPU. (Tiempo maximo de ejecucion de un proceso)
      * @param quantumTime - El nuevo quantum que se le quiere asignar a cada CPU.
      */
     public void updateQuantumTime(int quantumTime)
@@ -138,7 +141,7 @@ public class OS
 
     public void createNewProcess()
     {
-        Proceso newp = rpg.getNewProcess();  // Genera un nuevo proceso
+        Proceso newp = rpg.getNewProcess(processMaxSize, processMinSize);  // Genera un nuevo proceso
 
         //si se numero un proceso nuevo se guarda en el newProcesses//
 
@@ -263,6 +266,18 @@ public class OS
         cpu.loadProcess(proceso); // Carga el proceso al CPU disponible
 
         lstREADY.RemoveAt(0); // Remueve el proceso de la lista READY
+    }
+
+    public void updateMaxProcessesSize(int maxSize)
+    {
+        processMaxSize = maxSize;
+        System.Console.WriteLine("\nNuevo tamaño maximo de un proceso: " + maxSize);
+    }
+
+    public void updateMinProcessesSize(int minSize)
+    {
+        processMinSize = minSize;
+        System.Console.WriteLine("\nNuevo tamaño minimo de un proceso: " + minSize);
     }
 
 
