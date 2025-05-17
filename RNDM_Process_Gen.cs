@@ -16,7 +16,6 @@ public class Rndm_Gen
 
 	public Proceso getNewProcess(int maxSize, int minSize)
 	{
-		Console.WriteLine(maxSize);
 
 		if (maxSize == 0) {  maxSize = 15; } // Asegurarse de que el tamaño maximo no sea menor que 1
 		if (minSize < 0) { minSize = 1; } // Asegurarse de que el tamaño minimo no sea menor que 1
