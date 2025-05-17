@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_OS));
             this.lstReady = new System.Windows.Forms.ListBox();
             this.List_Finish = new System.Windows.Forms.ListBox();
             this.RAM = new System.Windows.Forms.ListBox();
@@ -674,6 +675,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GUI_OS";
             this.Text = "Simulador de Sistema Operativo (OS)";
