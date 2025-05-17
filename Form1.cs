@@ -27,12 +27,14 @@ namespace Projecto_2_19_2025
 
             lstReady.DataSource = null;
             lstReady.DataSource = os.getlistReady();
+            lblReadyCount.Text = String.Format("Count: {0}", os.getlistReady().Count.ToString()); // Actualiza el contador de procesos en READY
         }
 
         private void updateNewProcesses()
         {
             RAM.DataSource = null;
             RAM.DataSource = os.getnewProcesses();
+            lblNewCount.Text = String.Format("Count: {0}", os.getnewProcesses().Count.ToString()); // Actualiza el contador de procesos nuevos
 
 
         }
@@ -41,6 +43,7 @@ namespace Projecto_2_19_2025
         {
             List_Finish.DataSource = null;
             List_Finish.DataSource = os.getfinished();
+            lblFinishedCount.Text = String.Format("Count: {0}", os.getfinished().Count.ToString()); // Actualiza el contador de procesos terminados
         }
 
         private void UpdateRunning()
