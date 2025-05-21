@@ -15,7 +15,7 @@ public class OS
     // Variables
     int processMaxSize = 15;
     int processMinSize = 1;
-    private int maxBlockTicks = 20;  // tiempo máximo que un proceso puede estar bloqueado (configurable desde la GUI)
+    private int maxBlockTicks = 5;  // tiempo máximo que un proceso puede estar bloqueado (configurable desde la GUI)
 
     // Listas
     List<Proceso> lstREADY;

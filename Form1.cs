@@ -174,9 +174,9 @@ namespace Projecto_2_19_2025
             }
         }
 
-        private void numericUpDown_BlockTime_ValueChanged(object sender, EventArgs e)
+        private void trackBar1_Scroll(object sender, EventArgs e)
         {
-           
+            lbl_Probabilidad.Text = String.Format("Probabilidad: {0}%", trackBar1.Value);
         }
     }
 }

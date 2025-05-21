@@ -80,6 +80,8 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.lbl_Probabilidad = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -94,6 +96,7 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // lstReady
@@ -107,7 +110,7 @@
             this.lstReady.HorizontalScrollbar = true;
             this.lstReady.ItemHeight = 20;
             this.lstReady.Location = new System.Drawing.Point(0, 44);
-            this.lstReady.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstReady.Margin = new System.Windows.Forms.Padding(2);
             this.lstReady.Name = "lstReady";
             this.lstReady.Size = new System.Drawing.Size(525, 340);
             this.lstReady.TabIndex = 1;
@@ -123,7 +126,7 @@
             this.List_Finish.HorizontalScrollbar = true;
             this.List_Finish.ItemHeight = 20;
             this.List_Finish.Location = new System.Drawing.Point(0, 44);
-            this.List_Finish.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.List_Finish.Margin = new System.Windows.Forms.Padding(2);
             this.List_Finish.Name = "List_Finish";
             this.List_Finish.Size = new System.Drawing.Size(525, 340);
             this.List_Finish.TabIndex = 3;
@@ -139,7 +142,7 @@
             this.RAM.HorizontalScrollbar = true;
             this.RAM.ItemHeight = 20;
             this.RAM.Location = new System.Drawing.Point(0, 44);
-            this.RAM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RAM.Margin = new System.Windows.Forms.Padding(2);
             this.RAM.Name = "RAM";
             this.RAM.Size = new System.Drawing.Size(525, 340);
             this.RAM.TabIndex = 4;
@@ -162,10 +165,10 @@
             this.btnPCB.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnPCB.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnPCB.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPCB.Location = new System.Drawing.Point(30, 159);
-            this.btnPCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPCB.Location = new System.Drawing.Point(36, 120);
+            this.btnPCB.Margin = new System.Windows.Forms.Padding(2);
             this.btnPCB.Name = "btnPCB";
-            this.btnPCB.Size = new System.Drawing.Size(180, 28);
+            this.btnPCB.Size = new System.Drawing.Size(183, 30);
             this.btnPCB.TabIndex = 9;
             this.btnPCB.Text = "Process Control Block";
             this.btnPCB.UseVisualStyleBackColor = false;
@@ -185,11 +188,14 @@
             // 
             // numericUpDown
             // 
-            this.numericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.numericUpDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown.ForeColor = System.Drawing.Color.White;
             this.numericUpDown.Location = new System.Drawing.Point(14, 73);
-            this.numericUpDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown.Name = "numericUpDown";
-            this.numericUpDown.Size = new System.Drawing.Size(227, 26);
+            this.numericUpDown.Size = new System.Drawing.Size(227, 29);
             this.numericUpDown.TabIndex = 11;
             this.numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown.Value = new decimal(new int[] {
@@ -210,7 +216,7 @@
             this.CPU_List.HorizontalScrollbar = true;
             this.CPU_List.ItemHeight = 20;
             this.CPU_List.Location = new System.Drawing.Point(0, 44);
-            this.CPU_List.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CPU_List.Margin = new System.Windows.Forms.Padding(2);
             this.CPU_List.Name = "CPU_List";
             this.CPU_List.Size = new System.Drawing.Size(525, 340);
             this.CPU_List.TabIndex = 12;
@@ -225,7 +231,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(272, 823);
+            this.panel1.Size = new System.Drawing.Size(267, 823);
             this.panel1.TabIndex = 13;
             // 
             // panel21
@@ -236,9 +242,9 @@
             this.panel21.Controls.Add(this.label10);
             this.panel21.Controls.Add(this.btnClock);
             this.panel21.Controls.Add(this.btnPCB);
-            this.panel21.Location = new System.Drawing.Point(12, 215);
+            this.panel21.Location = new System.Drawing.Point(9, 15);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(250, 221);
+            this.panel21.Size = new System.Drawing.Size(250, 168);
             this.panel21.TabIndex = 22;
             // 
             // checkBox1
@@ -246,7 +252,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(30, 69);
+            this.checkBox1.Location = new System.Drawing.Point(28, 48);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(202, 24);
             this.checkBox1.TabIndex = 18;
@@ -284,10 +290,10 @@
             this.btnClock.ForeColor = System.Drawing.Color.Black;
             this.btnClock.Image = global::Projecto_2_19_2025.Properties.Resources.icons8_future_50;
             this.btnClock.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnClock.Location = new System.Drawing.Point(30, 115);
-            this.btnClock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClock.Location = new System.Drawing.Point(36, 77);
+            this.btnClock.Margin = new System.Windows.Forms.Padding(2);
             this.btnClock.Name = "btnClock";
-            this.btnClock.Size = new System.Drawing.Size(180, 27);
+            this.btnClock.Size = new System.Drawing.Size(183, 30);
             this.btnClock.TabIndex = 0;
             this.btnClock.Text = "Clock Tick";
             this.btnClock.UseVisualStyleBackColor = false;
@@ -296,6 +302,8 @@
             // panel20
             // 
             this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.panel20.Controls.Add(this.lbl_Probabilidad);
+            this.panel20.Controls.Add(this.trackBar1);
             this.panel20.Controls.Add(this.numericUpDown_BlockTime);
             this.panel20.Controls.Add(this.label13);
             this.panel20.Controls.Add(this.label12);
@@ -308,21 +316,27 @@
             this.panel20.Controls.Add(this.numericUpDown_QuantumTime);
             this.panel20.Controls.Add(this.label5);
             this.panel20.Controls.Add(this.numericUpDown);
-            this.panel20.Location = new System.Drawing.Point(12, 442);
+            this.panel20.Location = new System.Drawing.Point(9, 189);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(250, 370);
+            this.panel20.Size = new System.Drawing.Size(250, 455);
             this.panel20.TabIndex = 21;
             // 
             // numericUpDown_BlockTime
             // 
-            this.numericUpDown_BlockTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_BlockTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.numericUpDown_BlockTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_BlockTime.ForeColor = System.Drawing.Color.White;
             this.numericUpDown_BlockTime.Location = new System.Drawing.Point(14, 336);
-            this.numericUpDown_BlockTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown_BlockTime.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown_BlockTime.Name = "numericUpDown_BlockTime";
-            this.numericUpDown_BlockTime.Size = new System.Drawing.Size(227, 26);
+            this.numericUpDown_BlockTime.Size = new System.Drawing.Size(227, 29);
             this.numericUpDown_BlockTime.TabIndex = 24;
             this.numericUpDown_BlockTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown_BlockTime.ValueChanged += new System.EventHandler(this.numericUpDown_BlockTime_ValueChanged);
+            this.numericUpDown_BlockTime.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // label13
             // 
@@ -350,16 +364,18 @@
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown2.ForeColor = System.Drawing.Color.White;
             this.numericUpDown2.Location = new System.Drawing.Point(14, 270);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown2.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(227, 26);
+            this.numericUpDown2.Size = new System.Drawing.Size(227, 29);
             this.numericUpDown2.TabIndex = 21;
             this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown2.Value = new decimal(new int[] {
@@ -383,16 +399,18 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.ForeColor = System.Drawing.Color.White;
             this.numericUpDown1.Location = new System.Drawing.Point(14, 203);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(227, 26);
+            this.numericUpDown1.Size = new System.Drawing.Size(227, 29);
             this.numericUpDown1.TabIndex = 19;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.Value = new decimal(new int[] {
@@ -438,11 +456,13 @@
             // 
             // numericUpDown_QuantumTime
             // 
-            this.numericUpDown_QuantumTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_QuantumTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.numericUpDown_QuantumTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_QuantumTime.ForeColor = System.Drawing.Color.White;
             this.numericUpDown_QuantumTime.Location = new System.Drawing.Point(14, 134);
-            this.numericUpDown_QuantumTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown_QuantumTime.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown_QuantumTime.Name = "numericUpDown_QuantumTime";
-            this.numericUpDown_QuantumTime.Size = new System.Drawing.Size(227, 26);
+            this.numericUpDown_QuantumTime.Size = new System.Drawing.Size(227, 29);
             this.numericUpDown_QuantumTime.TabIndex = 12;
             this.numericUpDown_QuantumTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown_QuantumTime.Value = new decimal(new int[] {
@@ -455,18 +475,18 @@
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.panel16.Location = new System.Drawing.Point(12, 7);
+            this.panel16.Location = new System.Drawing.Point(3, 7);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(300, 2);
+            this.panel16.Size = new System.Drawing.Size(270, 2);
             this.panel16.TabIndex = 20;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.panel6.Controls.Add(this.panel17);
-            this.panel6.Location = new System.Drawing.Point(12, 18);
+            this.panel6.Location = new System.Drawing.Point(9, 650);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(250, 191);
+            this.panel6.Size = new System.Drawing.Size(250, 159);
             this.panel6.TabIndex = 12;
             // 
             // panel17
@@ -479,13 +499,13 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel17.Location = new System.Drawing.Point(0, 0);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(250, 181);
+            this.panel17.Size = new System.Drawing.Size(250, 147);
             this.panel17.TabIndex = 12;
             // 
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel19.Location = new System.Drawing.Point(7, 154);
+            this.panel19.Location = new System.Drawing.Point(7, 138);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(238, 2);
             this.panel19.TabIndex = 16;
@@ -493,16 +513,16 @@
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel18.Location = new System.Drawing.Point(7, 44);
+            this.panel18.Location = new System.Drawing.Point(5, 48);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(238, 2);
             this.panel18.TabIndex = 15;
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(2, 52);
+            this.label7.Location = new System.Drawing.Point(2, 36);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(248, 104);
@@ -512,9 +532,9 @@
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(34, 8);
+            this.label6.Location = new System.Drawing.Point(32, 12);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(179, 33);
@@ -692,7 +712,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel7.Location = new System.Drawing.Point(274, 22);
+            this.panel7.Location = new System.Drawing.Point(271, 19);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(2, 780);
             this.panel7.TabIndex = 17;
@@ -729,6 +749,30 @@
             this.panel15.Size = new System.Drawing.Size(1060, 2);
             this.panel15.TabIndex = 20;
             // 
+            // trackBar1
+            // 
+            this.trackBar1.LargeChange = 10;
+            this.trackBar1.Location = new System.Drawing.Point(14, 407);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Minimum = 1;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(227, 45);
+            this.trackBar1.TabIndex = 50;
+            this.trackBar1.Value = 25;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // lbl_Probabilidad
+            // 
+            this.lbl_Probabilidad.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lbl_Probabilidad.ForeColor = System.Drawing.Color.White;
+            this.lbl_Probabilidad.Location = new System.Drawing.Point(24, 378);
+            this.lbl_Probabilidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Probabilidad.Name = "lbl_Probabilidad";
+            this.lbl_Probabilidad.Size = new System.Drawing.Size(199, 26);
+            this.lbl_Probabilidad.TabIndex = 26;
+            this.lbl_Probabilidad.Text = "Probabilidad: %50";
+            this.lbl_Probabilidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // GUI_OS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -745,7 +789,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GUI_OS";
             this.Text = "Simulador de Sistema Operativo (OS)";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
@@ -753,6 +797,7 @@
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
             this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_BlockTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -767,6 +812,7 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -824,7 +870,8 @@
         private System.Windows.Forms.Label lblNewCount;
         private System.Windows.Forms.Label lblReadyCount;
         private System.Windows.Forms.Label label13;
-       
+        private System.Windows.Forms.Label lbl_Probabilidad;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }
 
