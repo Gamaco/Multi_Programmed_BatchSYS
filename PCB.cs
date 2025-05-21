@@ -41,6 +41,11 @@ namespace Projecto_2_19_2025
                     lstProcessControlBlock.Items.Add($" {p.getPid(),-5}{p.getPC(),-5}{p.getSize(),-7}RUNNING");
                 }
             }
+            // Proceso en BLOCKED
+            foreach (Proceso p in sistema.getBlocked())
+            {
+                lstProcessControlBlock.Items.Add($" {p.getPid(),-5}{p.getPC(),-5}{p.getSize(),-7}BLOCKED");
+            }
 
             // Procesos en FINISHED
             foreach (Proceso p in sistema.getfinished())

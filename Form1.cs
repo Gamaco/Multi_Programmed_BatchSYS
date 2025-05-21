@@ -14,13 +14,19 @@ namespace Projecto_2_19_2025
         PCB pcbGUI;
         Boolean autoTrigger;
 
+        private System.Windows.Forms.NumericUpDown numericUpDown_BlockTime;
+        private System.Windows.Forms.Label labelBlockTime;
+
         public GUI_OS()
         {
             os = new OS();
             autoTrigger = false;
             InitializeComponent();
-
+           
         }
+
+       
+       
 
         private void UpdateREADY()
         {
@@ -144,12 +150,33 @@ namespace Projecto_2_19_2025
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            os.updateMaxProcessesSize((int)numericUpDown1.Value); // Cambia el tamaño maximo de los procesos
+            if (os.getMinProcessesSize() > (int)numericUpDown1.Value)
+            {
+                MessageBox.Show("El tamaño máximo no puede ser menor que el tamaño mínimo.");
+                numericUpDown1.Value = os.getMaxProcessesSize();
+            }
+            else
+            {
+                os.updateMaxProcessesSize((int)numericUpDown1.Value); // Cambia el tamaño minimo de los procesos
+            }
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            os.updateMinProcessesSize((int)numericUpDown2.Value); // Cambia el tamaño minimo de los procesos
+            if (os.getMaxProcessesSize() < (int)numericUpDown2.Value)
+            {
+                MessageBox.Show("El tamaño mínimo no puede ser mayor que el tamaño máximo.");
+                numericUpDown2.Value = os.getMinProcessesSize();
+            }
+            else
+            {
+                os.updateMinProcessesSize((int)numericUpDown2.Value); // Cambia el tamaño minimo de los procesos
+            }
+        }
+
+        private void numericUpDown_BlockTime_ValueChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

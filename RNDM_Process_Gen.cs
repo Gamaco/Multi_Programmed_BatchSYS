@@ -14,7 +14,7 @@ public class Rndm_Gen
 		process_Identifier = 1;
 	}
 
-	public Proceso getNewProcess(int maxSize, int minSize)
+	public Proceso getNewProcess(int minSize, int maxSize)
 	{
 
 		if (maxSize == 0) {  maxSize = 15; } // Asegurarse de que el tamaño maximo no sea menor que 1
@@ -22,7 +22,7 @@ public class Rndm_Gen
 
         Random rndm = new Random();
 
-		int size = rndm.Next(minSize,maxSize);
+        int size = rndm.Next(minSize,maxSize);
 
 		int priority = rndm.Next(1,6);
 

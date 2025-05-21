@@ -11,8 +11,11 @@ public class OS
     //CONSTANTES
     const int MAX_PROCESSES_IN_READY = 5;
     private readonly object cpuLock;
-    int processMaxSize;
-    int processMinSize;
+
+    // Variables
+    int processMaxSize = 15;
+    int processMinSize = 1;
+    private int maxBlockTicks = 20;  // tiempo máximo que un proceso puede estar bloqueado (configurable desde la GUI)
 
     // Listas
     List<Proceso> lstREADY;
@@ -62,14 +65,10 @@ public class OS
         this.createNewProcess();  // Crea un nuevo proceso
         this.moveNewToready();   // Intenta mover procesos nuevos a READY
         this.moveNewToready();  // (se hace doble para llenar hasta 5 procesos)
-
-
-        MoveReadyToRunning();   // Si hay un CPU disponible, mueve un proceso de READY al CPU
+        this.MoveReadyToRunning();   // Si hay un CPU disponible, mueve un proceso de READY al CPU
         this.executeProcess();  // Ejecuta un ciclo del proceso cargado
-
-        removeExecutingProcess(); // Si el proceso en el CPU termino, lo mueve a FINISHED
-
-        updateBlocked();
+        this.removeExecutingProcess(); // Si el proceso en el CPU termino, lo mueve a FINISHED
+        this.updateBlocked(); // Actualiza los procesos bloqueados
 
         if (new Random().Next(0, 4) == 0) // 25% de probabilidad
         {
@@ -103,11 +102,22 @@ public class OS
     {
         List<CPU> newCpuList = new List<CPU>(); // Reinicia la lista de CPUs disponibles
 
+        // Añade todos los procesos nuevamente a la lista de ready
+        foreach (CPU cpu in availableCPUs)
+        {
+            if (cpu.isExecutingAProcess())
+            {
+                lstREADY.Add(cpu.getExecutingProcess());
+            }
+        }
+
+        // Crea una nueva lista de CPUs disponibles con el nuevo tamaño.
         for (int i = 0; i < amountOfCPUs; i++)
         {
             newCpuList.Add(new CPU(i + 1)); // El parametro es el ID del CPU.
         }
 
+        // Remplaza la lista de CPUs disponibles por la nueva lista.
         lock (cpuLock)
         {
             availableCPUs = newCpuList;
@@ -141,7 +151,7 @@ public class OS
 
     public void createNewProcess()
     {
-        Proceso newp = rpg.getNewProcess(processMaxSize, processMinSize);  // Genera un nuevo proceso
+        Proceso newp = rpg.getNewProcess(processMinSize, processMaxSize);  // Genera un nuevo proceso
 
         //si se numero un proceso nuevo se guarda en el newProcesses//
 
@@ -217,7 +227,8 @@ public class OS
         lstREADY.RemoveAt(index);
         p.setState(Proceso.States.BLOCKED);
 
-        int ticks = r.Next(2, 6); // bloqueado por 2-5 ticks
+        int ticks = r.Next(1, maxBlockTicks + 1);
+        //int ticks = r.Next(2, 6); // bloqueado por 2-5 ticks
         blocked.Add((p, ticks));
 
         System.Console.WriteLine("Se movio proceso a bloqueado: " + p.ToString());
@@ -243,7 +254,13 @@ public class OS
         }
     }
 
-    public List<Proceso> getBlocked()
+    public void setMaxBlockTick(int ticks)  // permite actualizar el tiempo máximo de bloqueo desde el formulario GUI
+    { 
+      this.maxBlockTicks = ticks;
+      Console.WriteLine("Nuevo tirmpo maximo de bloqueoa:" + ticks);
+    }
+
+    public List<Proceso> getBlocked()  // método para acceder a los procesos bloqueados desde el PCB
     {
         return blocked.Select(b => b.Item1).ToList();
     }
@@ -280,6 +297,21 @@ public class OS
         System.Console.WriteLine("\nNuevo tamaño minimo de un proceso: " + minSize);
     }
 
+    public void setMaxBlockTime(int ticks)
+    {
+        this.maxBlockTicks = ticks;
+        Console.WriteLine("Nuevo tiempo maximo de bloqueo:" + ticks);
+    }
+
+    public int getMaxProcessesSize()
+    {
+        return this.processMaxSize;
+    }
+
+    public int getMinProcessesSize()
+    {
+        return this.processMinSize;
+    }
 
     public List<Proceso> getnewProcesses()
     {
