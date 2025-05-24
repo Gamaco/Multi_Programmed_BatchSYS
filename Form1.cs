@@ -69,7 +69,7 @@ namespace Projecto_2_19_2025
             int totalCPUs = os.getCPUs().Count;
             float usage = (totalCPUs > 0) ? ((float)runningCount / totalCPUs) * 100 : 0;
 
-            lbl_cpuUsage.Text = $"CPU Usage: {usage:0}%"; // El 0 es para que lo redondee
+            lbl_cpuUsage.Text = $"CPU Utilization: {usage:0}%"; // El 0 es para que lo redondee
 
         }
 

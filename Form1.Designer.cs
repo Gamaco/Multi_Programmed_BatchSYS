@@ -43,6 +43,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnClock = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.lbl_Probabilidad = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.numericUpDown_BlockTime = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -80,12 +82,11 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.lbl_Probabilidad = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_BlockTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -96,7 +97,6 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // lstReady
@@ -320,6 +320,30 @@
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(250, 455);
             this.panel20.TabIndex = 21;
+            // 
+            // lbl_Probabilidad
+            // 
+            this.lbl_Probabilidad.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lbl_Probabilidad.ForeColor = System.Drawing.Color.White;
+            this.lbl_Probabilidad.Location = new System.Drawing.Point(24, 378);
+            this.lbl_Probabilidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Probabilidad.Name = "lbl_Probabilidad";
+            this.lbl_Probabilidad.Size = new System.Drawing.Size(199, 26);
+            this.lbl_Probabilidad.TabIndex = 26;
+            this.lbl_Probabilidad.Text = "Probabilidad: %50";
+            this.lbl_Probabilidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.LargeChange = 10;
+            this.trackBar1.Location = new System.Drawing.Point(14, 407);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Minimum = 1;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(227, 45);
+            this.trackBar1.TabIndex = 50;
+            this.trackBar1.Value = 25;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // numericUpDown_BlockTime
             // 
@@ -561,9 +585,9 @@
             this.lbl_cpuUsage.ForeColor = System.Drawing.Color.White;
             this.lbl_cpuUsage.Location = new System.Drawing.Point(394, 15);
             this.lbl_cpuUsage.Name = "lbl_cpuUsage";
-            this.lbl_cpuUsage.Size = new System.Drawing.Size(104, 16);
+            this.lbl_cpuUsage.Size = new System.Drawing.Size(120, 16);
             this.lbl_cpuUsage.TabIndex = 13;
-            this.lbl_cpuUsage.Text = "CPU Usage: 0%";
+            this.lbl_cpuUsage.Text = "CPU Utilization: 0%";
             // 
             // panel11
             // 
@@ -749,30 +773,6 @@
             this.panel15.Size = new System.Drawing.Size(1060, 2);
             this.panel15.TabIndex = 20;
             // 
-            // trackBar1
-            // 
-            this.trackBar1.LargeChange = 10;
-            this.trackBar1.Location = new System.Drawing.Point(14, 407);
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Minimum = 1;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(227, 45);
-            this.trackBar1.TabIndex = 50;
-            this.trackBar1.Value = 25;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
-            // lbl_Probabilidad
-            // 
-            this.lbl_Probabilidad.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lbl_Probabilidad.ForeColor = System.Drawing.Color.White;
-            this.lbl_Probabilidad.Location = new System.Drawing.Point(24, 378);
-            this.lbl_Probabilidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_Probabilidad.Name = "lbl_Probabilidad";
-            this.lbl_Probabilidad.Size = new System.Drawing.Size(199, 26);
-            this.lbl_Probabilidad.TabIndex = 26;
-            this.lbl_Probabilidad.Text = "Probabilidad: %50";
-            this.lbl_Probabilidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // GUI_OS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -798,6 +798,7 @@
             this.panel21.PerformLayout();
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_BlockTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -812,7 +813,6 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
